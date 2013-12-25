@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>1on1speak</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="" />
+        <meta name="author" content="stilearning" />
+
+        <!-- google font -->
+        <link href="http://fonts.googleapis.com/css?family=Aclonica:regular" rel="stylesheet" type="text/css" />
+
+		<!-- Bootstrap core CSS -->
+		<link href="http://v3.bootcss.com/dist/css/bootstrap.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="http://v3.bootcss.com/examples/starter-template/starter-template.css" rel="stylesheet">
+
+
+		<link href="lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
+
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+		  <script src="../../docs-assets/js/html5shiv.js"></script>
+		  <script src="../../docs-assets/js/respond.min.js"></script>
+		<![endif]-->
+
+<style type="text/css">
+	.form-signin {
+	  max-width: 550px;
+	  padding: 50px;
+	  margin: 0 auto;
+	}
+	
+
+	
+	#photo-banner {
+		background-size: cover;
+		height: 492px;
+		border-bottom: 1px solid #efefef;
+		background: url("resources/images/together.jpg") center no-repeat;
+		background-color: #fff;
+		min-width: 880px;
+	}
+	
+</style>
+
+
+
+
+  </head>
+
+  <body style="">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><span class="color-teal">1on1</span>speak</a></a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/homepage.html">公开课</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right" id="logul">
+            <li><a href="#" onclick="showTab(0)">登录</a></li>
+            <li><a href="#">|</a></li>
+            <li><a href="#" onclick="showTab(1)">注册</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <div class="container">
+      <div id="photo-banner" class="jumbotron"></div>
+
+    </div><!-- /.container -->
+
+
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="lib/js/jquery.js"></script>
+    <script src="lib/bootstrap-3.0.0-dist/js/bootstrap.min.js"></script>
+	<script>
+		$('#myTab a').click(function (e) {
+	
+		})
+
+		function showTab(liNum){
+			$('#myModal').modal('show');
+			if (liNum == 0)
+			{
+				$('#myTab a:first').tab('show');
+			} else {
+				$('#myTab a:last').tab('show');
+			}	
+		}
+	</script>
+	
+</body></html>

@@ -1,0 +1,82 @@
+//resize editor
+$('#editor').width($('#page1').width()-40);
+//上42，下32
+$('#editor').height($('#page1').height()-42-32-20);
+
+//自动更新时间 2s
+var EDITOR_INTERVAL_TIME = 20000;
+
+var editor = ace.edit("editor");
+editor.setTheme("ace/theme/twilight");
+editor.getSession().setMode("ace/mode/javascript");
+
+if($scope.userType == 1) {
+	$scope.editorTheme = 'ace/theme/twilight';
+	$scope.editorMode = 'javascript';
+
+	$('#editor_mode').on('change',function(){
+		editor.getSession().setMode("ace/mode/"+this.value);
+		$scope.editorMode = this.value;
+	});
+	$('#editor_theme').on('change',function(){
+		editor.setTheme(this.value);
+		$scope.editorTheme = this.value;
+	});
+	var editorInter = function() {
+		var data = [];
+		data.push('rid='+$scope.rid);
+		data.push('mode='+encodeURIComponent($scope.editorMode));
+		data.push('theme='+encodeURIComponent($scope.editorTheme));
+		data.push('content='+encodeURIComponent(editor.getValue()));
+		data.push('ts='+(+new Date()));
+		//上传代码
+		$.ajax({
+		    type: "POST",
+		    //url: "/intviu/web/index.php?m=editor&a=setEditorContent",
+		    url: "/editor/setEditorContent",
+		    dataType:'json', 
+		    data: data.join('&'),
+		    success: function(data) {
+		    	setTimeout(editorInter,EDITOR_INTERVAL_TIME);
+		    },
+		    error:function() {
+		    	setTimeout(editorInter,EDITOR_INTERVAL_TIME);
+		    }
+		});
+	}
+	editorInter();
+} else {
+	editor.setReadOnly(true);
+	$('#editor_mode').attr('disabled',true);
+	$('#editor_theme').attr('disabled',true);
+	var editorLoadInter = function() {
+		var data = [];
+		data.push('rid='+$scope.rid);
+		data.push('ts='+(+new Date()));
+		//上传代码
+		$.ajax({
+		    type: "GET",
+		    //url: "/intviu/web/index.php?m=editor&a=getEditorContent",
+		    url: "/editor/getEditorContent",
+		    dataType:'json', 
+		    data: data.join('&'),
+		    success: function(data) {
+		    	//{code:0,data:{mode:'',theme:'',content:''}}
+		    	if(data.code == 0) {
+		    		data = data.data;
+		    		editor.getSession().setMode("ace/mode/"+data.mode);
+		    		editor.setTheme(data.theme);
+		    		editor.setValue(data.content);
+		    	}
+		    	setTimeout(editorLoadInter,EDITOR_INTERVAL_TIME);
+		    },
+		    error : function() {
+		    	setTimeout(editorLoadInter,EDITOR_INTERVAL_TIME);
+		    }
+		});
+	}
+	editorLoadInter();
+}
+
+
+

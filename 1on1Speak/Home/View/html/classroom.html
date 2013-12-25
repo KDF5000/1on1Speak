@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>直播课堂</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta name="description" content="" />
+        <meta name="author" content="stilearning" />
+		<link rel="stylesheet" href="/libs/bootstrap-3.0.0-dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../css/matrix-style.css" />
+		<link href="/libs/font-awesome/css/font-awesome.css" rel="stylesheet" />
+
+
+		<style type="text/css">
+
+		body{
+			background:#EFEFEF;
+		}
+		
+
+		.class-left-panel{
+			 width:auto;
+			 height:100px;
+			 background-color:#FFFFFF;
+		}
+
+		.class-info-picture{
+			float:left;
+			width:130px;
+			height:100px;
+			background: url("../images/teacher.jpg") no-repeat center center transparent;
+		}
+
+
+		.class-info-desc{
+			margin-left:130px;
+			width:auto;
+			height:100px;
+		}
+
+
+		.title-and-language {
+			font-size: 18px;
+			padding-bottom: 2px;
+			color: #444;
+			white-space: nowrap;
+			margin: 0;
+			padding: 10px 0px;
+		}
+
+
+		.description {
+			height: 55px;
+		}
+
+		.language {
+			color: #009249;
+		}
+
+
+		.classroom {
+			 width:100%;
+			 height:auto;
+		}
+
+		.classroom-top{
+			 width:100%;
+			 height:150px;
+			 border: 1px solid #CDCDCD;
+			 margin:0px;
+			 background:#FFFFFF;
+		}
+		
+		.class-top-menu {
+			 margin:0px 0px 0px -1px;
+		}
+
+		.classroom-middle{
+			 width:100%;
+			 height:602px;
+			 border: 1px solid #CDCDCD;
+			 margin:-1px 0px 20px 0px;
+		}
+
+		.classroom-middle-left {
+			 width:auto;
+			 height:600px;
+			 margin-right:202px;
+			 background-color:#FFFFFF;
+		}
+
+		.classroom-middle-right {
+			 position:relative;
+			 width:200px; 
+			 height:600px;
+			 border-left: 1px solid #CDCDCD;
+			 float:right;
+			 background-color:#FFFFFF;
+		}
+		
+		.vedio-area {
+			width: 100%;
+			height:200px;
+		}
+		
+		.userarea-bar {
+			border-top: 1px solid #CDCDCD;
+			border-bottom: 1px solid #CDCDCD;
+			height:30px;
+			line-height:30px;
+			background-color:#C3DCED;
+		}	
+
+		.userarea-list {
+			width:100%;
+			height:auto;
+		}
+
+		.class-info-picture{
+			
+			width:130px;
+			height:100px;
+			background: url("../images/teacher.jpg") no-repeat center center transparent;
+		}
+
+		.chats-panel-msgarea {
+			width: 100%;
+			height:400px;
+			overflow-y:auto; 
+			overflow-x:hidden;
+		}
+		.chats-panel-toolbar {
+			border-top: 1px solid #CDCDCD;
+			border-bottom: 1px solid #CDCDCD;
+			height:30px;
+			line-height:30px;
+			background-color:#C3DCED;
+		}
+		.chats-panel-send {
+			background-color:#C3DCED;
+			line-height:56px;
+			text-align:right;
+		}
+
+
+/***
+Chats
+***/
+.chats {
+  margin:0;
+  padding: 0;
+  margin-top: -10px;
+  margin-left: 20px;
+}
+
+.chats li {
+  list-style: none;
+  padding: 5px 0;
+  margin: 10px auto;
+  font-size: 12px;
+}
+
+.chats li img.avatar {
+  height: 45px;
+  width: 45px;
+  -webkit-border-radius: 50% !important;
+     -moz-border-radius: 50% !important;
+          border-radius: 50% !important;
+}
+
+.chats li.in img.avatar {
+  float: left;
+  margin-right: 10px;
+}
+
+.chats li .name {
+  color:#3590c1;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.chats li .datetime {
+  color:#333;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.chats li.out img.avatar {
+  float: right;
+  margin-left: 10px;
+}
+
+.chats li .message {
+  display: block; 
+  padding: 5px;
+  position: relative;
+}
+
+.chats li.in .message {
+  text-align: left;
+  border-left: 2px solid #35aa47;
+  margin-left: 65px;
+  background: #fafafa 
+}
+
+.chats li.in .message .arrow {
+  display: block;
+  position: absolute;
+  top: 5px;
+  left: -8px;  
+  width: 0; 
+  height: 0; 
+
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;  
+  border-right: 8px solid #35aa47;  
+}
+
+.chats li.out .message .arrow {
+  display: block;
+  position: absolute;
+  top: 5px;
+  right: -8px;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;  
+  border-left: 8px solid #da4a38;  
+}
+
+.chats li.out .message {
+  border-right: 2px solid #da4a38;
+  margin-right: 65px;
+  background: #fafafa;
+  text-align: right;
+}
+
+.chats li.out .name, 
+.chats li.out .datetime  {  
+  text-align: right;
+}
+
+.chats li .message .body {
+  display: block; 
+}
+
+.chat-form {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #e9eff3;
+  overflow: hidden;
+  clear: both;   
+}
+
+.chat-form .input-cont {
+  margin-right: 55px;
+}
+
+.chat-form .input-cont .m-wrap {
+  margin-bottom: 0px;
+}
+
+.chat-form .input-cont input{
+  border: 1px solid #ddd;
+  width: 100%;  
+  margin-top: 0;
+}
+
+.chat-form .input-cont input {
+  background-color: #fff !important;
+}
+
+.chat-form .input-cont input:focus{
+  border: 1px solid #4b8df9 !important;
+}
+
+.chat-form .btn-cont {
+  margin-top: -42px;
+  position: relative;
+  float: right;
+  width:44px;
+}
+
+.chat-form .btn-cont .arrow {
+  position: absolute;
+  top: 17px;
+  right: 43px;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;  
+  border-right: 8px solid #4d90fe;   
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box; 
+}
+
+.chat-form .btn-cont:hover .arrow {
+  border-right-color: #0362fd;
+}
+
+.chat-form .btn-cont:hover .btn {
+  background-color: #0362fd;
+}
+
+.chat-form .btn-cont .btn {
+  margin-top: 8px;
+}
+
+
+		</style>
+
+
+
+	</head>
+	<body>
+		<div class="classroom">
+			<div class="classroom-top">
+			
+				 <div class="class-left-panel">
+						<div class="class-info">
+							<div class="class-info-picture"></div>
+							<div class="class-info-desc">
+								<h2 class="title-and-language">
+									<span class="language">英语</span>
+									<span class="title">走遍美国</span>
+									<span class="teacher">steven</span> 
+									<span class="label label-success">2013-10-10 14:00</span>
+								</h2>
+								<p class="description" style="word-wrap:break-word;">
+									Short films are typically silent and much shorter than typical movies, yet still they manage to convey important messages. Today we will watch several beautifully made and interesting short films in class. After watching the films, we'll discuss what we saw and what message the directors may have been intending to send to the audience.
+								</p>
+								
+							</div>
+						</div>	     	
+				 </div>  
+						
+				<div class="class-top-menu">
+					<ul class="nav nav-tabs">
+					  <li class="active"><a href="#chatspanel" data-toggle="tab">聊天</a></li>
+					  <li><a href="#courseware" data-toggle="tab">课件</a></li>
+					</ul>				
+				<div>
+			</div>	
+			<div class="classroom-middle">
+				<div class="classroom-middle-right">
+					<div class="vedio-area">
+						视频区
+					</div>
+					<div class="userarea-bar">课堂成员(6/10)</div>
+					<div class="userarea-list">
+						user1</br>
+						user2</br>
+						user3</br>
+						user4</br>
+						user5</br>
+						user6</br>
+					</div>
+				
+				</div>
+				<div class="classroom-middle-left tab-content">
+					  <!--chatspanel panel begin-->
+					  <div class="tab-pane active" id="chatspanel">
+							<div class="chats-panel-msgarea" id="chats">
+									
+
+										<ul class="chats">
+											<li class="in">
+												<img class="avatar" alt="" src="../images/avatar1.jpg" />
+												<div class="message">
+													<span class="arrow"></span>
+													<a href="#" class="name">Bob Nilson</a>
+													<span class="datetime">at Jul 25, 2012 11:09</span>
+													<span class="body">
+													Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+													</span>
+												</div>
+											</li>
+											<li class="in">
+												<img class="avatar" alt="" src="../images/avatar2.jpg" />
+												<div class="message">
+													<span class="arrow"></span>
+													<a href="#" class="name">Lisa Wong</a>
+													<span class="datetime">at Jul 25, 2012 11:09</span>
+													<span class="body">
+													Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+													</span>
+												</div>
+											</li>
+											<li class="in">
+												<img class="avatar" alt="" src="../images/avatar1.jpg" />
+												<div class="message">
+													<span class="arrow"></span>
+													<a href="#" class="name">Bob Nilson</a>
+													<span class="datetime">at Jul 25, 2012 11:09</span>
+													<span class="body">
+													Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+													</span>
+												</div>
+											</li>
+											<li class="in">
+												<img class="avatar" alt="" src="../images/avatar3.jpg" />
+												<div class="message">
+													<span class="arrow"></span>
+													<a href="#" class="name">Richard Doe</a>
+													<span class="datetime">at Jul 25, 2012 11:09</span>
+													<span class="body">
+													Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+													</span>
+												</div>
+											</li>
+											<li class="in">
+												<img class="avatar" alt="" src="../images/avatar3.jpg" />
+												<div class="message">
+													<span class="arrow"></span>
+													<a href="#" class="name">Richard Doe</a>
+													<span class="datetime">at Jul 25, 2012 11:09</span>
+													<span class="body">
+													Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+													</span>
+												</div>
+											</li>
+											<li class="in">
+												<img class="avatar" alt="" src="../images/avatar1.jpg" />
+												<div class="message">
+													<span class="arrow"></span>
+													<a href="#" class="name">Bob Nilson</a>
+													<span class="datetime">at Jul 25, 2012 11:09</span>
+													<span class="body">
+													Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+													</span>
+												</div>
+											</li>
+											<li class="in">
+												<img class="avatar" alt="" src="../images/avatar3.jpg" />
+												<div class="message">
+													<span class="arrow"></span>
+													<a href="#" class="name">Richard Doe</a>
+													<span class="datetime">at Jul 25, 2012 11:09</span>
+													<span class="body">
+													Lorem ipsum dolor sit amet, consectetuer adipiscing elit, 
+													sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+													</span>
+												</div>
+											</li>
+											<li class="in">
+												<img class="avatar" alt="" src="../images/avatar1.jpg" />
+												<div class="message">
+													<span class="arrow"></span>
+													<a href="#" class="name">Bob Nilson</a>
+													<span class="datetime">at Jul 25, 2012 11:09</span>
+													<span class="body">
+													Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. sed diam nonummy nibh euismod tincidunt ut laoreet.
+													</span>
+												</div>
+											</li>
+										</ul>
+
+					
+
+
+
+							</div>
+							<div class="chats-panel-toolbar">
+							</div>
+							<textarea class="form-control" rows="5"></textarea>
+							<div class="chats-panel-send">
+
+								<div class="btn-group" style="margin:0px 10px 0px 0px;">
+								  <button type="button" class="btn  btn-default">&nbsp;&nbsp;发&nbsp;&nbsp;&nbsp;送&nbsp;&nbsp;</button>
+								  <button type="button" class="btn  btn-default dropdown-toggle" data-toggle="dropdown">
+									<span class="caret"></span>
+									<span class="sr-only">Toggle Dropdown</span>
+								  </button>
+								  <ul class="dropdown-menu" role="menu">
+									<li><a href="#">按Enter键发送</a></li>
+									<li><a href="#">按Ctrl+Enter键发送</a></li>
+								  </ul>
+								</div>
+
+
+							</div>
+
+
+					  </div>
+					  <!--chatspanel panel end-->	
+					  <!--courseware panel beging-->
+					  <div class="tab-pane" id="courseware">
+							课件区域
+					  </div>
+					  <!--courseware panel end-->				
+				
+				</div>
+				
+			</div>
+
+		</div>
+
+		
+
+		<script src="/libs/js/jquery.js"></script>
+		<script src="/libs/bootstrap-3.0.0-dist/js/bootstrap.js"></script>
+
+		<script>
+		$('#upcoming div[class="class-panel"]').click(function (e) {
+			
+		})
+
+		window.onload=function(){
+			
+			//$('#chats').scrollTop=$('#chats').scrollHeight;
+		}
+		</script>
+
+
+	</body>
+</html>

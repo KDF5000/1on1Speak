@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>课程中心</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta name="description" content="" />
+        <meta name="author" content="stilearning" />
+		<link rel="stylesheet" href="/libs/bootstrap-3.0.0-dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="/Home/View/css/matrix-style.css" />
+		<link href="/libs/font-awesome/css/font-awesome.css" rel="stylesheet" />
+
+
+		<style type="text/css">
+
+		body{
+			background:#EFEFEF;
+		}
+
+		.class-panel{
+			 width:100%;
+			 height:142px;
+			 border: 1px solid #CDCDCD;
+			 margin:0px 0px 10px 0px;
+			 cursor: pointer;
+		}
+
+		.class-left-panel{
+			 width:auto;
+			 height:140px;
+			 margin-right:152px;
+			 background-color:#FFFFFF;
+		}
+		.class-right-panel{
+			 position:relative;
+			 width:150px; 
+			 height:140px;
+			 background-color:#0676AB;
+			 float:right;
+			 text-align:center;
+			 color:white;
+			 line-height:140px;
+		}
+
+		.class-full {
+			background-color:#F8F8F8;
+			color:#CDCDCD;
+		}
+
+		.class-info{
+			width:100%;
+			height:140px;
+		}
+			
+			
+		.class-info-time{
+			position:relative;
+			float:left;
+			width:100px;
+			height:140px;
+			text-align:center;
+			line-height:25px;	
+			
+		}
+
+		.time {
+			position:relative;
+			font-size: 22px;
+			color: #565656;
+			margin-top: 50px;
+			font-weight: bold;
+			
+		}
+
+		.day {
+			position:relative;
+			margin-top: -15px;
+			color: #656565;
+		}
+
+
+		.class-info-picture{
+			float:left;
+			width:130px;
+			height:140px;
+			background: url("/Home/View/images/teacher.jpg") no-repeat center center transparent;
+		}
+
+
+		.class-info-desc{
+			margin-left:230px;
+			width:auto;
+			height:140px;
+		}
+
+
+		.title-and-language {
+			font-size: 18px;
+			padding-bottom: 2px;
+			color: #444;
+			white-space: nowrap;
+			margin: 0;
+			padding: 10px 0px;
+		}
+
+
+		.description {
+			height: 55px;
+		}
+
+		.language {
+			color: #009249;
+		}
+
+		.title {
+			max-width: 60%;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			display: inline-block;
+			height: 17px;
+		}
+
+		.teacher {
+			font-size: 15px;
+			color: #8b8b8b;
+			display: inline-block;
+		}
+
+		.load-panel{
+			 width:100%;
+			 height:50px;
+			 border: 1px solid #CDCDCD;
+			 margin:20px 0px;
+			 background:#FFFFFF;
+			 text-align:center;
+			 line-height:50px
+		}
+
+
+		.tabs {
+			height: 41px;
+			position: relative;
+			border: 1px solid #d3d3d3;
+			margin-bottom: 10px;
+			background-color: white;
+		}
+		
+		.when {
+			list-style-type: none;
+			margin:0px;
+			padding:0px;
+		}
+
+		.when li {
+			color: #888;
+			float: left;
+			padding: 10px;
+			border-right: 1px solid #CCC;
+		}
+
+
+		.tabs .when li.selected {
+			font-weight: bold;
+			color: #565656;
+		}
+		
+
+		.filter-count {
+			float : right;
+		}
+
+		</style>
+
+
+
+	</head>
+	<body>
+		<div class="row">
+		  <div class="col-md-2">
+				<!-- 标签栏 begin -->
+				<div class="widget-box collapsible">
+				  <a data-toggle="collapse" href="#collapseOne"> 
+					  <div class="widget-title"> 
+						<h5>语言</h5><span class="icon"><i class="icon-angle-down"></i></span>
+					  </div>
+				  </a> 
+				  <div id="collapseOne" class="collapse in">
+					<div class="widget-content"> 
+						<!-- 语言 begin -->
+						<div class="checkbox">
+						  <label>
+							<input type="checkbox" value="">
+								英语
+						  </label>
+						  <span class="filter-count">100000</span>
+						</div>
+						<div class="checkbox">
+						  <label>
+							<input type="checkbox" value="">
+								日语
+						  </label>
+						  <span class="filter-count">100</span>
+						</div>
+						<!-- 语言 end -->
+					</div>
+				  </div>
+				  <a data-toggle="collapse" href="#collapseTwo"> 
+					  <div class="widget-title"> 
+						<h5>难度</h5><span class="icon"><i class="icon-angle-down"></i></span>
+					  </div>
+				  </a>
+				  <div id="collapseTwo" class="collapse in">
+					<div class="widget-content">
+						<!-- 难度 begin -->
+						<div class="checkbox">
+						  <label>
+							<input type="checkbox" value="">
+								高级
+						  </label>
+						  <span class="filter-count">100</span>
+						</div>
+						<div class="checkbox">
+						  <label>
+							<input type="checkbox" value="">
+								中级
+						  </label>
+						  <span class="filter-count">100</span>
+						</div>
+						<div class="checkbox">
+						  <label>
+							<input type="checkbox" value="">
+								初级
+						  </label>
+						  <span class="filter-count">100</span>
+						</div>	
+						<!-- 难度 end -->
+					</div>
+				  </div>
+				  <a data-toggle="collapse" href="#collapseThree"> 
+					  <div class="widget-title">
+							<h5>标签</h5><span class="icon"><i class="icon-angle-down"></i></span>
+					</div>
+				  </a>
+				  <div id="collapseThree" class="collapse in">
+					<div class="widget-content"> 
+						<div class="checkbox">
+						  <label>
+							<input type="checkbox" value="">
+								听力
+						  </label>
+						  <span class="filter-count">100</span>
+						</div>	
+						<div class="checkbox">
+						  <label>
+							<input type="checkbox" value="">
+								口语
+						  </label>
+						  <span class="filter-count">100</span>
+						</div>	
+						<div class="checkbox">
+						  <label>
+							<input type="checkbox" value="">
+								阅读
+						  </label>
+						  <span class="filter-count">100</span>
+						</div>		
+						<div class="checkbox">
+						  <label>
+							<input type="checkbox" value="">
+								语法
+						  </label>
+						  <span class="filter-count">100</span>
+						</div>							
+					</div>
+				  </div>
+				</div>
+				<!-- 标签栏 end -->
+		  
+		  </div>
+		  <div class="col-md-10">		
+			
+			<div class="tabs">
+				<ul class="when">
+				  <li class="active selected"><a href="#upcoming" data-toggle="tab">在线课程 - 100</a></li>
+				  <li><a href="#recorded" data-toggle="tab">录音课程 - 200</a></li>
+				</ul>
+			</div>
+			
+
+			<div class="tab-content">
+			  <!--upcoming panel begin-->
+			  <div class="tab-pane active" id="upcoming">
+					<!-- 课程介绍 begin -->
+					<div class="class-panel">
+						 <div class="class-right-panel">
+								<span>预定座位</span>
+						 </div>   
+						 <div class="class-left-panel">
+								<div class="class-info">
+									<div class="class-info-time">
+										<p class="time">18:00 PM</p>
+										<p class="day">2013-10-05</p>
+									</div>
+									<div class="class-info-picture"></div>
+									<div class="class-info-desc">
+										<h2 class="title-and-language">
+											<span class="language">英语</span>
+											<span class="title">走遍美国</span>
+											<span class="teacher">steven</span>        
+										</h2>
+										<p class="description" style="word-wrap:break-word;">
+											Short films are typically silent and much shorter than typical movies, yet still they manage to convey important messages. Today we will watch several beautifully made and interesting short films in class. After watching the films, we'll discuss what we saw and what message the directors may have been intending to send to the audience.
+										</p>
+										<span class="label label-success">高级</span>
+										<span class="label label-warning">听力</span>
+									</div>
+								</div>	     	
+						 </div>  
+					</div>
+					<!-- 课程介绍 end -->
+					<!-- 课程介绍 begin -->
+					<div class="class-panel">
+						 <div class="class-right-panel">
+								<span>预定座位</span>  
+						 </div>   
+						 <div class="class-left-panel">
+								<div class="class-info">
+									<div class="class-info-time">
+										<p class="time">18:00 PM</p>
+										<p class="day">2013-10-05</p>
+									</div>
+									<div class="class-info-picture"></div>
+									<div class="class-info-desc">
+										<h2 class="title-and-language">
+											<span class="language">英语</span>
+											<span class="title">走遍美国</span>
+											<span class="teacher">steven</span>        
+										</h2>
+										<p class="description" style="word-wrap:break-word;">
+											Short films are typically silent and much shorter than typical movies, yet still they manage to convey important messages. Today we will watch several beautifully made and interesting short films in class. After watching the films, we'll discuss what we saw and what message the directors may have been intending to send to the audience.
+										</p>
+										<span class="label label-success">高级</span>
+										<span class="label label-warning">听力</span>
+									</div>
+								</div>	     	
+						 </div> 
+					</div>
+					<!-- 课程介绍 end -->
+					<!-- 课程介绍 begin -->
+					<div class="class-panel">
+						 <div class="class-right-panel">
+								<span>预定座位</span> 
+						 </div>   
+						 <div class="class-left-panel"">
+								<div class="class-info">
+									<div class="class-info-time">
+										<p class="time">18:00 PM</p>
+										<p class="day">2013-10-05</p>
+									</div>
+									<div class="class-info-picture"></div>
+									<div class="class-info-desc">
+										<h2 class="title-and-language">
+											<span class="language">英语</span>
+											<span class="title">走遍美国</span>
+											<span class="teacher">steven</span>        
+										</h2>
+										<p class="description" style="word-wrap:break-word;">
+											Short films are typically silent and much shorter than typical movies, yet still they manage to convey important messages. Today we will watch several beautifully made and interesting short films in class. After watching the films, we'll discuss what we saw and what message the directors may have been intending to send to the audience.
+										</p>
+										<span class="label label-success">高级</span>
+										<span class="label label-warning">听力</span>
+									</div>
+								</div>	     	
+						 </div>  
+					</div>
+					<!-- 课程介绍 end -->
+					<!-- 课程介绍 begin -->
+					<div class="class-panel">
+						 <div class="class-right-panel class-full">
+								<span>人员已满</span>  
+						 </div>   
+						 <div class="class-left-panel">
+								<div class="class-info">
+									<div class="class-info-time">
+										<p class="time">18:00 PM</p>
+										<p class="day">2013-10-05</p>
+									</div>
+									<div class="class-info-picture"></div>
+									<div class="class-info-desc">
+										<h2 class="title-and-language">
+											<span class="language">英语</span>
+											<span class="title">走遍美国</span>
+											<span class="teacher">steven</span>        
+										</h2>
+										<p class="description" style="word-wrap:break-word;">
+											Short films are typically silent and much shorter than typical movies, yet still they manage to convey important messages. Today we will watch several beautifully made and interesting short films in class. After watching the films, we'll discuss what we saw and what message the directors may have been intending to send to the audience.
+										</p>
+										<span class="label label-success">高级</span>
+										<span class="label label-warning">听力</span>
+									</div>
+								</div>	     	
+						 </div>  
+					</div>
+					<!-- 课程介绍 end -->						
+					<!-- 加载更多 begin -->
+					<div class="load-panel">
+						<a href="#">加载更多</a>
+					</div>
+					<!-- 加载更多 end -->	
+			  </div>
+			  <!--upcoming panel end-->	
+			  <!--recorded panel beging-->
+			  <div class="tab-pane" id="recorded">
+					
+			  </div>
+			  <!--recorded panel end-->
+			</div>
+		  </div>
+		</div>
+
+
+
+		<script src="/libs/js/jquery.js"></script>
+		<script src="/libs/bootstrap-3.0.0-dist/js/bootstrap.js"></script>
+
+		<script>
+		$('#upcoming div[class="class-panel"]').click(function (e) {
+			parent.$("#mainFrame").attr("src","/Home/View/html/classroom.html");
+		})
+		</script>
+
+
+	</body>
+</html>
